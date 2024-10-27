@@ -2,31 +2,96 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZF05MSSNP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZF05MSSNP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-6ZF05MSSNP');
-</script>
+        gtag('config', 'G-6ZF05MSSNP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+
     <title>Hotels comparator</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap");
+
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            font-size: 7rem;
+            position: relative;
+            background-image: url("https://lh3.googleusercontent.com/pw/ADCreHfBW3vvSAuWC02xB8Np21o2LCbVv-BNE5usbK3j_xzKalluFA80WQblU84rFIw_Vorgc4CbGKvG3vI_uearHghAj4md8193qRTtajCEE-4DmyW0uw=w2400");
+            background-repeat: repeat-x;
+            background-position: 0% calc(50% + 0.6em);
+            background-size: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h1 {
+                /* These three properties are where the magic happens: */
+                -webkit-text-fill-color: hsl(48deg 100% 100%);
+            // -webkit-text-stroke: 1px hsl(48deg 100% 100%);
+                filter: drop-shadow(0px 2px 2px hsl(0deg 0% 100% / 0.5))
+                drop-shadow(0px 0px 4px hsl(48deg 100% 50% / 0.5))
+                drop-shadow(0px 0px 10px hsl(48deg 100% 50% / 0.5))
+                drop-shadow(0px 0px 50px hsl(48deg 100% 50% / 1));
+
+                /* Fallback for IE */
+                color: deeppink;
+
+                /* Misc aesthetic properties */
+                font-size: 7rem;
+                font-weight: 500;
+                font-family: "Londrina Sketch", sans-serif;
+                letter-spacing: 4px;
+                white-space: nowrap;
+
+                &#reflection {
+                    position: absolute;
+                    top: 50%;
+                    transform: rotatex(180deg) translatey(-50px);
+                    opacity: 0.1;
+                }
+            }
+
+            img {
+                position: absolute;
+                top: 0%;
+                left: 0;
+                opacity: 0.5;
+                z-index: -1;
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
-            background-color: #007BFF;
-            color: #fff;
             text-align: center;
             padding: 10px;
+            height: 100%;
         }
 
         .special-text {
@@ -65,7 +130,6 @@
 
         div {
             text-align: center;
-            margin-top: 30px;
         }
 
         label {
@@ -102,13 +166,25 @@
         button:hover {
             background-color: #005500;
         }
+
+        .input-wrap {
+            position: absolute;
+            top: 30px;
+        }
     </style>
 </head>
 <body>
 <div class="header">
-    <h1 class="special-text">Special for Valerchik)))</h1>
+    <div class="container">
+        <h1 id="main">
+            Special for Valerchik)))
+        </h1>
+        <h1 id="reflection">
+            Special for Valerchik)))
+        </h1>
+    </div>
 </div>
-<div>
+<div class="input-wrap">
     <div class="input-group">
         <label for="prev-input">Предыдущий HTML</label>
         <input type="file" id="prev-input" accept=".html">
