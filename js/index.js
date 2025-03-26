@@ -90,6 +90,9 @@ function removeElementsFromArray(text, elementsToRemove) {
 }
 
 function openFileInNewTab() {
+    const header = document.querySelector('.header');
+    header.classList.add('strobe');
+    setTimeout(() => {header.classList.remove('strobe')}, 4000);
     compareBtn.disabled = true;
     const currentH1Tags = extractH1TagsWithData(currentFileContents);
     const prevH1Tags = extractH1TagsWithData(prevFileContents);

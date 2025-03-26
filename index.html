@@ -102,12 +102,13 @@
             background-color: #005500;
         }
     </style>
+    <link rel="stylesheet" href="./styles/bg.css">
 </head>
 <body>
 <div class="header">
     <h1 class="special-text">Special for Valerchik)))</h1>
 </div>
-<div>
+<div class="wrap">
     <div class="input-group">
         <label for="prev-input">Предыдущий HTML</label>
         <input type="file" id="prev-input" accept=".html">
@@ -118,6 +119,8 @@
     </div>
     <button id="openInNewTab">Сравнить цены</button>
 </div>
+<canvas id='c'></canvas>
 <script type="module" src="js/index.js"></script>
+<script type="module" src="js/bg.js"></script>
 </body>
 </html>
